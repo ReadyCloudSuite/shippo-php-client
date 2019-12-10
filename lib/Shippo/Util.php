@@ -12,7 +12,7 @@ abstract class Shippo_Util
     {
         if (!is_array($array))
             return false;
-        
+
         // TODO: generally incorrect, but it's correct given Shippo's response
         foreach (array_keys($array) as $k) {
             if (!is_numeric($k))
@@ -20,7 +20,7 @@ abstract class Shippo_Util
         }
         return true;
     }
-    
+
     /**
      * Recursively converts the PHP Shippo object to an array.
      *
@@ -31,8 +31,8 @@ abstract class Shippo_Util
     {
         $results = array();
         foreach ($values as $k => $v) {
-            // FIXME: this is an encapsulation violation
-            if ($k[0] == '_') {
+            // Gefixt wie in https://github.com/symfony/symfony/commit/5f451e6f7074976aae60a65ba144fff684b7b48c
+            if (0 === strpos($k, '_')) {
                 continue;
             }
             if ($v instanceof Shippo_Object) {
@@ -45,7 +45,7 @@ abstract class Shippo_Util
         }
         return $results;
     }
-    
+
     /**
      * Converts a response from the Shippo API to the corresponding PHP object.
      *
