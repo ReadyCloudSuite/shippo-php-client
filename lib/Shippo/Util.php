@@ -32,6 +32,7 @@ abstract class Shippo_Util
         $results = array();
         foreach ($values as $k => $v) {
             // Gefixt wie in https://github.com/symfony/symfony/commit/5f451e6f7074976aae60a65ba144fff684b7b48c
+            // damit es PHP 7.4 kompatibel ist
             if (0 === strpos($k, '_')) {
                 continue;
             }
