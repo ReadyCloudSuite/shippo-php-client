@@ -96,23 +96,23 @@ class Shippo_Object implements ArrayAccess
     }
     
     // ArrayAccess methods
-    public function offsetSet($k, $v)
+    public function offsetSet(mixed $offset, mixed $value): void
     {
-        $this->$k = $v;
+        $this->$offset = $value;
     }
     
-    public function offsetExists($k)
+    public function offsetExists(mixed $offset): bool
     {
-        return array_key_exists($k, $this->_values);
+        return array_key_exists($offset, $this->_values);
     }
-    
-    public function offsetUnset($k)
+
+    public function offsetUnset(mixed $offset): void
     {
-        unset($this->$k);
+        unset($this->$offset);
     }
-    public function offsetGet($k)
+    public function offsetGet(mixed $offset): mixed
     {
-        return array_key_exists($k, $this->_values) ? $this->_values[$k] : null;
+        return array_key_exists($offset, $this->_values) ? $this->_values[$offset] : null;
     }
     
     public function keys()

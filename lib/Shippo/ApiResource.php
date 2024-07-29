@@ -55,7 +55,7 @@ abstract class Shippo_ApiResource extends Shippo_Object
     public static function classUrl($class)
     {
         $base = self::_scopedLsb($class, 'className', $class);
-        return "/v1/${base}s";
+        return "/v1/{$base}s";
     }
     
     /**
